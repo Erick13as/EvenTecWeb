@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/eventec-web/static/css/main.4d01ba30.css",
-    "main.js": "/eventec-web/static/js/main.b635bef2.js",
+    "main.js": "/eventec-web/static/js/main.4c6fd8ad.js",
     "static/media/backgroundImage.webp": "/eventec-web/static/media/backgroundImage.8b76e06f080717b3fb8e.webp",
     "index.html": "/eventec-web/index.html",
     "main.4d01ba30.css.map": "/eventec-web/static/css/main.4d01ba30.css.map",
-    "main.b635bef2.js.map": "/eventec-web/static/js/main.b635bef2.js.map"
+    "main.4c6fd8ad.js.map": "/eventec-web/static/js/main.4c6fd8ad.js.map"
   },
   "entrypoints": [
     "static/css/main.4d01ba30.css",
-    "static/js/main.b635bef2.js"
+    "static/js/main.4c6fd8ad.js"
   ]
 }
