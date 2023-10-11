@@ -1,3 +1,4 @@
+import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
@@ -9,6 +10,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path='eventec-web/' element={<SignIn />} /> 
+        <Route path='/registro' element={<SignUp />} />
       </Routes>
     </div>
     </BrowserRouter>

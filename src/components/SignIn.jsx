@@ -21,9 +21,9 @@ const SignIn = () => {
   
           // Check the value of rolValue and navigate accordingly
           if (rolValue === 'Admin') {
-            navigate('/galeriaAdmin');
+            navigate('/mainPageAdmin');
           } else {
-            navigate('/galeriaCliente');
+            navigate('/mainPageStudent');
           }
         });
       })
@@ -41,13 +41,6 @@ const SignIn = () => {
 
   return (
     <div className="galeria-container">
-      <form className="formBarra">
-        <div className="botonBarra-container">
-          <button className="botonBarra" onClick={() => navigate('/duende')}>
-            Galería
-          </button>
-        </div>
-      </form>
       <div className="sign_in-container">
         <form onSubmit={signIn} className="formSignIn">
           <h1 className="title">Iniciar Sesión</h1>
