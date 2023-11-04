@@ -23,7 +23,7 @@ const SignIn = () => {
           if (rolValue === 'Admin') {
             navigate('/mainPageAdmin');
           } else {
-            navigate('/mainPageStudent');
+            navigate('/mainPageStudent', { state: { correo: email } });
           }
         });
       })
