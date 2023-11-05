@@ -68,7 +68,15 @@
 
   .form-container {
     width: 200px;
-    height: 200px;
+    height: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .form-inscripcion {
+    width: auto;
+    height: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
