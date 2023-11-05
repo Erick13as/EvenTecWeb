@@ -41,6 +41,8 @@ const SignIn = () => {
 
   return (
     <div className="galeria-container">
+      <p></p>
+      <p></p>
       <div className="sign_in-container">
         <form onSubmit={signIn} className="formSignIn">
           <h1 className="title">Iniciar Sesión</h1>
