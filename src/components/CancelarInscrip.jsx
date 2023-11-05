@@ -33,25 +33,29 @@ function CancelarInscrip() {
     const inscribirse = async () => {
         // Realizar la consulta a la colección "inscripcion" en Firebase Firestore
         const inscripcionesRef = collection(db, 'inscripcion');
-        const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'interes'));
+        const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'inscrito'));
+        const eventosRef = collection(db, 'evento');
+        const q2 = query(eventosRef, where('nombre', '==', evento));
 
         const querySnapshot = await getDocs(q);
+        const querySnapshot2 = await getDocs(q2);
 
-        if (!querySnapshot.empty) {
+        if (!querySnapshot.empty && !querySnapshot2.empty) {
             const inscripcionDoc = querySnapshot.docs[0];
-            // Obtener el ID del documento de inscripción
+            const eventosDoc = querySnapshot2.docs[0];
+
+            // Eliminar el documento de inscripción
             const inscripcionId = inscripcionDoc.id;
+            await deleteDoc(doc(db, 'inscripcion', inscripcionId));
 
-            // Crear una referencia al documento de inscripción
-            const inscripcionDocRef = doc(db, 'inscripcion', inscripcionId);
-
-            // Actualizar el valor de idEstado a "inscrito"
-            await updateDoc(inscripcionDocRef, {
-                idEstado: 'inscrito'
+            // Actualizar la capacidad del evento
+            const eventosId = eventosDoc.id;
+            await updateDoc(doc(db, 'evento', eventosId), {
+                capacidad: eventoData.capacidad + 1
             });
 
-            console.log('Inscripción exitosa');
-            navigate('/confirmarInscrip', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio } })
+            console.log('Inscripción cancelada con éxito');
+            navigate('/eventec-web') // Cambiar cuando este pantalla inicio
         } else {
             console.log('No se encontró una inscripción que cumpla con los criterios.');
         }
@@ -76,7 +80,10 @@ function CancelarInscrip() {
                     </div>
                 )}
                 <p></p>
-                <button onClick={inscribirse} className='botonOA2'>Inscribirse</button>
+                <button onClick={() => navigate('/confirmarInscrip', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio } })} className='botonOA2'>Ver QR</button>
+                <p></p>
+                <button onClick={inscribirse} className='botonOA2'>Cancelar Inscripción</button>
+                
             </div>
         </div>
     );
