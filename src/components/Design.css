@@ -81,6 +81,14 @@
     background-color: #fff;
     border-radius: 8px;
   }
+
+  .form-qr {
+    width: auto;
+    height: auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
   
   .carousel-container {
     display: flex;

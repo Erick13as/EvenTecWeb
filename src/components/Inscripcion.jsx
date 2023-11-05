@@ -51,7 +51,7 @@ function Inscripcion() {
             });
 
             console.log('Inscripción exitosa');
-            navigate('/inscripcion', { state: { evento: evento, correo: correo } })
+            navigate('/confirmarInscrip', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio } })
         } else {
             console.log('No se encontró una inscripción que cumpla con los criterios.');
         }
