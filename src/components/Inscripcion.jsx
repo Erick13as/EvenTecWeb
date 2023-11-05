@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
+import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 function Inscripcion() {
     const navigate = useNavigate();
     const location = useLocation();
     const evento = location.state && location.state.evento;
+    const correo = location.state && location.state.correo;
     const [eventoData, setEventoData] = useState(null);
 
     useEffect(() => {
@@ -29,6 +30,33 @@ function Inscripcion() {
             });
     }, [evento]);
 
+    const inscribirse = async () => {
+        // Realizar la consulta a la colección "inscripcion" en Firebase Firestore
+        const inscripcionesRef = collection(db, 'inscripcion');
+        const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'interes'));
+
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+            const inscripcionDoc = querySnapshot.docs[0];
+            // Obtener el ID del documento de inscripción
+            const inscripcionId = inscripcionDoc.id;
+
+            // Crear una referencia al documento de inscripción
+            const inscripcionDocRef = doc(db, 'inscripcion', inscripcionId);
+
+            // Actualizar el valor de idEstado a "inscrito"
+            await updateDoc(inscripcionDocRef, {
+                idEstado: 'inscrito'
+            });
+
+            console.log('Inscripción exitosa');
+            navigate('/inscripcion', { state: { evento: evento, correo: correo } })
+        } else {
+            console.log('No se encontró una inscripción que cumpla con los criterios.');
+        }
+    };
+
     return (
         <div className="galeria-container">
             <form className="formBarra">
@@ -48,7 +76,7 @@ function Inscripcion() {
                     </div>
                 )}
                 <p></p>
-                <button onClick={() => navigate('/inscripcion')} className='botonOA2'>Inscribirse</button>
+                <button onClick={inscribirse} className='botonOA2'>Inscribirse</button>
             </div>
         </div>
     );

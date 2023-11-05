@@ -6,13 +6,16 @@ import { db } from '../firebase/firebaseConfig';
 function Eventos() {
   const [eventOptions, setEventOptions] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState('');
+  const [buttonDisabled, setButtonDisabled] = useState(true); // Agregamos un estado para deshabilitar el botón
   const navigate = useNavigate();
+  const location = useLocation();
+  const correo = location.state && location.state.correo;
 
   useEffect(() => {
     // Cargar las opciones del combobox desde Firebase
     const fetchEventOptions = async () => {
       const inscripcionCollection = collection(db, 'inscripcion');
-      const inscripcionQuery = query(inscripcionCollection, where('idEstado', '==', 'interes'));
+      const inscripcionQuery = query(inscripcionCollection, where('idEstado', '==', 'interes'), where('correo', '==', correo));
 
       try {
         const inscripcionSnapshot = await getDocs(inscripcionQuery);
@@ -21,12 +24,18 @@ function Eventos() {
           name: doc.data().idEvento, // Asumiendo que tienes un campo nombreEvento en tus documentos
         }));
         setEventOptions(options);
+
+        // Habilitar el botón si se encontraron datos
+        if (options.length > 0) {
+          setButtonDisabled(false);
+        }
       } catch (error) {
         console.error('Error al cargar las opciones del combobox:', error);
       }
     };
 
     fetchEventOptions();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // El segundo argumento vacío asegura que se carguen las opciones solo una vez al montar el componente
 
   // Función para manejar el cambio en el combobox
@@ -36,29 +45,36 @@ function Eventos() {
 
   return (
     <div className="galeria-container">
-        <form className="formBarra">
-            <div className="botonBarra-container">
-              <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
-            </div>
-        </form>
+      <form className="formBarra">
+        <div className="botonBarra-container">
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+        </div>
+      </form>
       <p></p>
       <p></p>
       <div className="form-container">
-      <h1>Inscripción</h1>
-      <p>Eventos de interés:</p>
-      <select onChange={handleEventChange} value={selectedEvent}>
-        <option value="">...</option>
-        {eventOptions.map((option) => (
-          <option key={option.id} value={option.id}>
-            {option.name}
-          </option>
-        ))}
-      </select>
-      <p></p>
-      <button onClick={() => navigate('/inscripcion', { state: { evento: selectedEvent } })} className='botonOA2'>Ver evento</button>
+        <h1>Inscripción</h1>
+        <p>Eventos de interés:</p>
+        <select onChange={handleEventChange} value={selectedEvent}>
+          <option value="">...</option>
+          {eventOptions.map((option) => (
+            <option key={option.id} value={option.id}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+        <p></p>
+        <button
+          onClick={() => navigate('/inscripcion', { state: { evento: selectedEvent, correo: correo } })}
+          className='botonOA2'
+          disabled={buttonDisabled} // Deshabilitar el botón si no hay datos
+        >
+          Ver evento
+        </button>
       </div>
     </div>
   );
 }
 
 export default Eventos;
+
