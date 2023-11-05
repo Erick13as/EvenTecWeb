@@ -47,7 +47,8 @@ function Inscripcion() {
 
             // Actualizar el valor de idEstado a "inscrito"
             await updateDoc(inscripcionDocRef, {
-                idEstado: 'inscrito'
+                idEstado: 'inscrito',
+                capacidad: eventoData.capacidad - 1
             });
 
             console.log('Inscripción exitosa');

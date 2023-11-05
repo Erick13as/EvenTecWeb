@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-function ConfirmarInscrip() {
+function CancelarInscrip() {
     const navigate = useNavigate();
     const location = useLocation();
     const evento = location.state && location.state.evento;
@@ -47,8 +47,7 @@ function ConfirmarInscrip() {
 
             // Actualizar el valor de idEstado a "inscrito"
             await updateDoc(inscripcionDocRef, {
-                idEstado: 'inscrito',
-                capacidad: eventoData.capacidad - 1
+                idEstado: 'inscrito'
             });
 
             console.log('Inscripción exitosa');
@@ -83,4 +82,4 @@ function ConfirmarInscrip() {
     );
 }
 
-export default ConfirmarInscrip;
+export default CancelarInscrip;

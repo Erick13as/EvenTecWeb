@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-function Eventos() {
+function MisEventos() {
   const [eventOptions, setEventOptions] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true); // Agregamos un estado para deshabilitar el botón
@@ -76,5 +76,5 @@ function Eventos() {
   );
 }
 
-export default Eventos;
+export default MisEventos;
 
