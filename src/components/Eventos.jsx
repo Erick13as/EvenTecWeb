@@ -55,7 +55,7 @@ function Eventos() {
         ))}
       </select>
       <p></p>
-      <button className='botonOA2'>Ver evento</button>
+      <button onClick={() => navigate('/inscripcion', { state: { evento: selectedEvent } })} className='botonOA2'>Ver evento</button>
       </div>
     </div>
   );
