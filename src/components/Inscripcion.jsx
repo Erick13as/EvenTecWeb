@@ -34,20 +34,29 @@ function Inscripcion() {
         // Realizar la consulta a la colección "inscripcion" en Firebase Firestore
         const inscripcionesRef = collection(db, 'inscripcion');
         const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'interes'));
+        const eventosRef = collection(db, 'evento');
+        const q2 = query(eventosRef, where('nombre', '==', evento));
 
         const querySnapshot = await getDocs(q);
+        const querySnapshot2 = await getDocs(q2);
 
-        if (!querySnapshot.empty) {
+        if (!querySnapshot.empty && !querySnapshot2.empty) {
             const inscripcionDoc = querySnapshot.docs[0];
+            const eventosDoc = querySnapshot2.docs[0];
             // Obtener el ID del documento de inscripción
             const inscripcionId = inscripcionDoc.id;
+            const eventosId = eventosDoc.id;
 
             // Crear una referencia al documento de inscripción
             const inscripcionDocRef = doc(db, 'inscripcion', inscripcionId);
+            const eventosDocRef = doc(db, 'evento', eventosId);
 
             // Actualizar el valor de idEstado a "inscrito"
             await updateDoc(inscripcionDocRef, {
                 idEstado: 'inscrito',
+                capacidad: eventoData.capacidad - 1
+            });
+            await updateDoc(eventosDocRef, {
                 capacidad: eventoData.capacidad - 1
             });
 

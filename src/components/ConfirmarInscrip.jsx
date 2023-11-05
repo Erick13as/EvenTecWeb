@@ -1,62 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp, doc } from 'firebase/firestore';
+import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
+import QRCode from 'qrcode.react';
 
 function ConfirmarInscrip() {
     const navigate = useNavigate();
     const location = useLocation();
     const evento = location.state && location.state.evento;
     const correo = location.state && location.state.correo;
-    const [eventoData, setEventoData] = useState(null);
+    const fecha = location.state && location.state.fecha;
+    const hora = location.state && location.state.hora;
 
-    useEffect(() => {
-        // Realizar la consulta a la colección "evento" en Firebase Firestore
-        const eventosRef = collection(db, 'evento');
-        const q = query(eventosRef, where('nombre', '==', evento));
-
-        getDocs(q)
-            .then((querySnapshot) => {
-                if (!querySnapshot.empty) {
-                    const eventoDoc = querySnapshot.docs[0];
-                    const eventData = eventoDoc.data();
-                    setEventoData(eventData);
-                } else {
-                    console.log('No se encontró el evento en la base de datos.');
-                }
-            })
-            .catch((error) => {
-                console.error('Error al obtener los datos del evento:', error);
-            });
-    }, [evento]);
-
-    const inscribirse = async () => {
-        // Realizar la consulta a la colección "inscripcion" en Firebase Firestore
-        const inscripcionesRef = collection(db, 'inscripcion');
-        const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'interes'));
-
-        const querySnapshot = await getDocs(q);
-
-        if (!querySnapshot.empty) {
-            const inscripcionDoc = querySnapshot.docs[0];
-            // Obtener el ID del documento de inscripción
-            const inscripcionId = inscripcionDoc.id;
-
-            // Crear una referencia al documento de inscripción
-            const inscripcionDocRef = doc(db, 'inscripcion', inscripcionId);
-
-            // Actualizar el valor de idEstado a "inscrito"
-            await updateDoc(inscripcionDocRef, {
-                idEstado: 'inscrito',
-                capacidad: eventoData.capacidad - 1
-            });
-
-            console.log('Inscripción exitosa');
-            navigate('/confirmarInscrip', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio } })
-        } else {
-            console.log('No se encontró una inscripción que cumpla con los criterios.');
-        }
-    };
+    // Crear una cadena de texto que contiene los datos
+    const qrData = `Correo: ${correo}\nEvento: ${evento}\nFecha: ${fecha}\nHora: ${hora}`;
 
     return (
         <div className="galeria-container">
@@ -67,18 +24,14 @@ function ConfirmarInscrip() {
             </form>
             <p></p>
             <p></p>
-            <div className="form-inscripcion">
-                <h1>{evento}</h1>
-                {eventoData && (
-                    <div>
-                        <p>Capacidad: {eventoData.capacidad}</p>
-                        <p>Fecha de Inicio: {eventoData.fechaInicio}</p>
-                        <p>Hora de Inicio: {eventoData.horaInicio}</p>
-                    </div>
-                )}
+            <form className="form-qr">
+                <h1>EvenTEC</h1>
+                <p>Inscripcion exitosa</p>
                 <p></p>
-                <button onClick={inscribirse} className='botonOA2'>Inscribirse</button>
-            </div>
+                <QRCode value={qrData} size={200} /> {/* Renderizar el código QR */}
+                <p></p>
+                <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Volver a inicio</button> {/* Cambiar cuando este pantalla inicio */}
+            </form>
         </div>
     );
 }
