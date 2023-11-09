@@ -5,6 +5,8 @@ import Inscripcion from './components/Inscripcion';
 import ConfirmarInscrip from './components/ConfirmarInscrip';
 import MisEventos from './components/MisEventos';
 import CancelarInscrip from './components/CancelarInscrip';
+import ConsultarActividades from './components/ConsultarActividades';
+import GestionarActividad from './components/GestionarActividad';
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import "./components/Design.css"
@@ -21,6 +23,8 @@ const App = () => {
         <Route path='/confirmarInscrip' element={<ConfirmarInscrip />} />
         <Route path='/misEventos' element={<MisEventos />} />
         <Route path='/cancelarInscrip' element={<CancelarInscrip />} />
+        <Route path='/consultarActividades' element={<ConsultarActividades />} />
+        <Route path='/gestionarActividad' element={<GestionarActividad />} />
       </Routes>
     </div>
     </BrowserRouter>

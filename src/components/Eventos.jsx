@@ -43,6 +43,12 @@ function Eventos() {
     setSelectedEvent(event.target.value);
   };
 
+  const handleNavigate = () => {
+    if (selectedEvent!==""){
+      navigate('/inscripcion', { state: { evento: selectedEvent, correo: correo } })
+    }
+  };
+
   return (
     <div className="galeria-container">
       <form className="formBarra">
@@ -65,7 +71,7 @@ function Eventos() {
         </select>
         <p></p>
         <button
-          onClick={() => navigate('/inscripcion', { state: { evento: selectedEvent, correo: correo } })}
+          onClick={() => handleNavigate()}
           className='botonOA2'
           disabled={buttonDisabled} // Deshabilitar el botón si no hay datos
         >

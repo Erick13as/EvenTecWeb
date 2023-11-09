@@ -21,9 +21,9 @@ const SignIn = () => {
   
           // Check the value of rolValue and navigate accordingly
           if (rolValue === 'Admin') {
-            navigate('/mainPageAdmin');
+            navigate('/consultarActividades');
           } else {
-            navigate('/MisEventos', { state: { correo: email } });// Cambiar en caso de querer probar otra pagina y que le llegue el usuario
+            navigate('/misEventos', { state: { correo: email } });// Cambiar en caso de querer probar otra pagina y que le llegue el usuario
           }
         });
       })
