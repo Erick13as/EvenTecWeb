@@ -74,6 +74,14 @@
     border-radius: 8px;
   }
 
+  .form-actividad {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
   .form-inscripcion {
     width: auto;
     height: auto;
