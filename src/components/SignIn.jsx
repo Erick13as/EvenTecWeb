@@ -23,7 +23,7 @@ const SignIn = () => {
           if (rolValue === 'Admin') {
             navigate('/consultarActividades');
           } else {
-            navigate('/misEventos', { state: { correo: email } });// Cambiar en caso de querer probar otra pagina y que le llegue el usuario
+            navigate('/calendarioEventos', { state: { correo: email } });// Cambiar en caso de querer probar otra pagina y que le llegue el usuario
           }
         });
       })
