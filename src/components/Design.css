@@ -74,6 +74,14 @@
     border-radius: 8px;
   }
 
+  .form-calendario {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
   .form-actividad {
     width: auto;
     height: auto;
@@ -96,6 +104,17 @@
     padding: 30px;
     background-color: #fff;
     border-radius: 8px;
+  }
+
+  .custom-calendar-style {
+      width: 600px; /* Ancho personalizado */
+      max-width: 100%; /* Para asegurarse de que no se extienda más allá del contenedor */
+      font-size: 16px; /* Tamaño de fuente personalizado */
+  }
+
+  /* Ajustar el tamaño de los cuadros de fecha */
+  .react-calendar__tile {
+      padding: 10px; /* Ajusta el relleno para cambiar el tamaño del cuadro de fecha */
   }
   
   .carousel-container {
