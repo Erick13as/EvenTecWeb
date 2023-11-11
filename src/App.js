@@ -9,6 +9,7 @@ import ConsultarActividades from './components/ConsultarActividades';
 import GestionarActividad from './components/GestionarActividad';
 import CalendarioEventos from './components/CalendarioEventos';
 import SeleccionarEvento from './components/SeleccionarEvento';
+import GuardarEvento from './components/GuardarEvento';
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import "./components/Design.css"
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='/gestionarActividad' element={<GestionarActividad />} />
         <Route path='/calendarioEventos' element={<CalendarioEventos />} />
         <Route path='/seleccionarEvento' element={<SeleccionarEvento />} />
+        <Route path='/guardarEvento' element={<GuardarEvento />} />
       </Routes>
     </div>
     </BrowserRouter>
