@@ -79,7 +79,7 @@ function ProgramacionActividad() {
       <p></p>
       <p></p>
       <div className="form-actividad">
-        <h1>{actividad}</h1>
+        <h1>Nueva actividad</h1>
         <label>
           Fecha:
           <input type="text" value={fecha} onChange={(e) => setFecha(e.target.value)} />
