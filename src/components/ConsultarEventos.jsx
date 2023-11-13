@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-function ConsultarActividades() {
+function ConsultarEventos() {
   const [eventOptions, setEventOptions] = useState([]);
   const [selectedActividad, setSelectedActividad] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true); // Agregamos un estado para deshabilitar el botón
@@ -12,14 +12,14 @@ function ConsultarActividades() {
   useEffect(() => {
     // Cargar las opciones del combobox desde Firebase
     const fetchEventOptions = async () => {
-      const actividadCollection = collection(db, 'actividad');
+      const actividadCollection = collection(db, 'evento');
       const actividadQuery = query(actividadCollection);
 
       try {
         const actividadSnapshot = await getDocs(actividadQuery);
         const options = actividadSnapshot.docs.map((doc) => ({
-          id: doc.data().descripcion,
-          name: doc.data().descripcion, // Asumiendo que tienes un campo nombreEvento en tus documentos
+          id: doc.data().nombre,
+          name: doc.data().nombre, // Asumiendo que tienes un campo nombreEvento en tus documentos
         }));
         setEventOptions(options);
 
@@ -43,7 +43,7 @@ function ConsultarActividades() {
 
   const handleNavigate = () => {
     if (selectedActividad!==""){
-        navigate('/gestionarActividad', { state: { actividad: selectedActividad } })
+        navigate('/gestionarEvento', { state: { evento: selectedActividad } })
     }
   };
 
@@ -57,7 +57,7 @@ function ConsultarActividades() {
       <p></p>
       <p></p>
       <div className="form-actividad">
-        <h1>Actividades Programadas</h1>
+        <h1>Eventos Programadas</h1>
         <p>Lista de Actividades:</p>
         <select onChange={handleActividadChange} value={selectedActividad}>
           <option value="">...</option>
@@ -73,12 +73,12 @@ function ConsultarActividades() {
           className='botonOA2'
           disabled={buttonDisabled} // Deshabilitar el botón si no hay datos
         >
-          Ver actividad
+          Ver evento
         </button>
       </div>
     </div>
   );
 }
 
-export default ConsultarActividades;
+export default ConsultarEventos;
 
