@@ -91,7 +91,7 @@ function VerEventoTerminado() {
                 <button
                 onClick={() => {
                     guardarCalificacion();
-                    navigate('/encuesta');
+                    navigate('/encuesta', { state: { evento: evento } });
                 }}
                 className='botonOA2'
             >

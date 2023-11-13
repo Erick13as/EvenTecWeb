@@ -15,8 +15,9 @@ import ConsultarEventos from './components/ConsultarEventos';
 import GestionarEvento from './components/GestionarEvento';
 import VerEventoTerminado from './components/VerEventoTerminado';
 import ProgramacionActividad from './components/ProgramacionActividad';
-import GestionarEstudiante from './components/GestionarEstudiante';
 import ConsultarEstudiantes from './components/ConsultarEstudiantes';
+import GestionarEstudiante from './components/GestionarEstudiante';
+import RedesSociales from './components/RedesSociales';
 
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='/programacionActividad' element={<ProgramacionActividad />} />
         <Route path='/consultarEstudiantes' element={<ConsultarEstudiantes />} />
         <Route path='/gestionarEstudiante' element={<GestionarEstudiante />} />
+        <Route path='/redesSociales' element={<RedesSociales />} />
 
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />

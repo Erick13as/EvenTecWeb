@@ -21,7 +21,7 @@ const SignIn = () => {
   
           // Check the value of rolValue and navigate accordingly
           if (rolValue === 'Admin') {
-            navigate('/consultarEstudiantes');
+            navigate('/redesSociales');
           } else {
             navigate('/misEventos', { state: { correo: email } });// Cambiar en caso de querer probar otra pagina y que le llegue el usuario
           }
