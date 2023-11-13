@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp, doc } from 'firebase/firestore';
+import {
+    updateDoc,
+    doc,
+    collection,
+    query,
+    where,
+    getDocs,
+} from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-function CancelarInscrip() {
+function VerEventoTerminado() {
     const navigate = useNavigate();
     const location = useLocation();
     const evento = location.state && location.state.evento;
     const correo = location.state && location.state.correo;
     const [eventoData, setEventoData] = useState(null);
+    const [calificacion, setCalificacion] = useState(1);
 
     useEffect(() => {
         // Realizar la consulta a la colección "evento" en Firebase Firestore
@@ -30,34 +38,21 @@ function CancelarInscrip() {
             });
     }, [evento]);
 
-    const inscribirse = async () => {
-        // Realizar la consulta a la colección "inscripcion" en Firebase Firestore
-        const inscripcionesRef = collection(db, 'inscripcion');
-        const q = query(inscripcionesRef, where('correo', '==', correo), where('idEstado', '==', 'inscrito'));
-        const eventosRef = collection(db, 'evento');
-        const q2 = query(eventosRef, where('nombre', '==', evento));
-
+    const guardarCalificacion = async () => {
+        // Obtener la referencia al documento en la colección "inscripcion"
+        const inscripcionRef = collection(db, 'inscripcion');
+        const q = query(inscripcionRef, where('correo', '==', correo), where('idEvento', '==', evento));
         const querySnapshot = await getDocs(q);
-        const querySnapshot2 = await getDocs(q2);
 
-        if (!querySnapshot.empty && !querySnapshot2.empty) {
+        if (!querySnapshot.empty) {
             const inscripcionDoc = querySnapshot.docs[0];
-            const eventosDoc = querySnapshot2.docs[0];
-
-            // Eliminar el documento de inscripción
-            const inscripcionId = inscripcionDoc.id;
-            await deleteDoc(doc(db, 'inscripcion', inscripcionId));
-
-            // Actualizar la capacidad del evento
-            const eventosId = eventosDoc.id;
-            await updateDoc(doc(db, 'evento', eventosId), {
-                capacidad: eventoData.capacidad + 1
+            // Actualizar el atributo calificacion en el documento
+            await updateDoc(doc(db, 'inscripcion', inscripcionDoc.id), {
+                calificacion: calificacion,
             });
-
-            console.log('Inscripción cancelada con éxito');
-            navigate('/eventec-web') // Cambiar cuando este pantalla inicio
+            console.log('Calificación guardada con éxito.');
         } else {
-            console.log('No se encontró una inscripción que cumpla con los criterios.');
+            console.log('No se encontró la inscripción en la base de datos.');
         }
     };
 
@@ -77,18 +72,34 @@ function CancelarInscrip() {
                         <p>Capacidad: {eventoData.capacidad}</p>
                         <p>Fecha de Inicio: {eventoData.fechaInicio}</p>
                         <p>Hora de Inicio: {eventoData.horaInicio}</p>
+                        <label htmlFor="calificacion">Calificación:</label>
+                        <select
+                            id="calificacion"
+                            name="calificacion"
+                            value={calificacion}
+                            onChange={(e) => setCalificacion(parseInt(e.target.value))}
+                        >
+                            {[...Array(10)].map((_, index) => (
+                                <option key={index + 1} value={index + 1}>
+                                    {index + 1}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 )}
                 <p></p>
-                <button onClick={() => navigate('/confirmarInscrip', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio } })} className='botonOA2'>Ver QR</button>
-                <p></p>
-                <button onClick={() => navigate('/verEventoTerminado', { state: { evento: evento, correo: correo, fecha: eventoData.fechaInicio, hora: eventoData.horaInicio, capacidad: eventoData.capacidad } })} className='botonOA2'>Calificar Evento</button>
-                <p></p>
-                <button onClick={inscribirse} className='botonOA2'>Cancelar Inscripción</button>
-                
+                <button
+                onClick={() => {
+                    guardarCalificacion();
+                    navigate('/encuesta');
+                }}
+                className='botonOA2'
+            >
+                Calificar Evento
+            </button>
             </div>
         </div>
     );
 }
 
-export default CancelarInscrip;
+export default VerEventoTerminado;
