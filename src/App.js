@@ -19,6 +19,7 @@ import ConsultarEstudiantes from './components/ConsultarEstudiantes';
 import GestionarEstudiante from './components/GestionarEstudiante';
 import RedesSociales from './components/RedesSociales';
 
+import LobbyAsociaciones from './components/LobbyAsociaciones';
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
 import React from 'react'
@@ -49,7 +50,7 @@ const App = () => {
         <Route path='/consultarEstudiantes' element={<ConsultarEstudiantes />} />
         <Route path='/gestionarEstudiante' element={<GestionarEstudiante />} />
         <Route path='/redesSociales' element={<RedesSociales />} />
-
+        <Route path='/LobbyAsociaciones' element={<LobbyAsociaciones />} />
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
        

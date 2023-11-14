@@ -129,6 +129,35 @@
     left: 925px;
   }
 
+
+  .lobby-container {
+    background-color: white; /* Fondo blanco */
+    padding: 20px; /* Ajusta el espaciado según tus necesidades */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 20px; /* Ajusta el margen del fondo blanco según tus necesidades */
+  }
+  
+  .lobby-botones-container {
+    display: flex;
+    flex-direction: column; /* Alinear los botones en columna */
+    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+  }
+  
+  .lobby-boton {
+    background-color: white; /* Fondo blanco */
+    color: #006400; /* Texto verde oscuro */
+    padding: 15px; /* Ajusta el espaciado interno del botón */
+    margin-bottom: 10px; /* Ajusta el margen inferior del botón */
+    text-decoration: none; /* Elimina la decoración de texto */
+    text-align: center; /* Alinea el texto al centro */
+    border: 2px solid #006400; /* Borde del botón */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  .lobby-boton:hover {
+    background-color: #f2f2f2; /* Cambia el color de fondo al pasar sobre el botón */
+  }
   .textarea-description {
     resize: none; /* Prevent manual resizing */
     overflow-y: hidden; /* Hide vertical scrollbar */
