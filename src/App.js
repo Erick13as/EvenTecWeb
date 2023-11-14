@@ -19,6 +19,9 @@ import ConsultarEstudiantes from './components/ConsultarEstudiantes';
 import GestionarEstudiante from './components/GestionarEstudiante';
 import RedesSociales from './components/RedesSociales';
 
+import LobbyEstudiantesAdmin from './components/LobbyEstudiantesAdmin';
+import Comunicacion from './components/Comunicacion';
+
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
 import React from 'react'
@@ -52,6 +55,8 @@ const App = () => {
 
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
+        <Route path='/lobbyestudiantesadmin' element={<LobbyEstudiantesAdmin />} />
+        <Route path='/comunicacion' element={<Comunicacion />} />
        
       </Routes>
     </div>
