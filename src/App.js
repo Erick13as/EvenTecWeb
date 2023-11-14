@@ -20,6 +20,10 @@ import GestionarEstudiante from './components/GestionarEstudiante';
 import RedesSociales from './components/RedesSociales';
 
 import LobbyAsociaciones from './components/LobbyAsociaciones';
+import LobbyColaborador from './components/LobbyColaborador';
+import LobbyEstudiante from './components/LobbyEstudiante';
+import GestionarColaborador from './components/GestionarColaborador';
+
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
 import React from 'react'
@@ -51,6 +55,10 @@ const App = () => {
         <Route path='/gestionarEstudiante' element={<GestionarEstudiante />} />
         <Route path='/redesSociales' element={<RedesSociales />} />
         <Route path='/LobbyAsociaciones' element={<LobbyAsociaciones />} />
+        <Route path='/LobbyColaborador' element={<LobbyColaborador />} />
+        <Route path='/LobbyEstudiante' element={<LobbyEstudiante />} />
+        <Route path='/gestionarColaborador' element={<GestionarColaborador />} />
+
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
        
