@@ -7,6 +7,7 @@ import MisEventos from './components/MisEventos';
 import CancelarInscrip from './components/CancelarInscrip';
 import ConsultarActividades from './components/ConsultarActividades';
 import GestionarActividad from './components/GestionarActividad';
+import RegistrarColaborador from './components/RegistrarColaborador';
 import CalendarioEventos from './components/CalendarioEventos';
 import SeleccionarEvento from './components/SeleccionarEvento';
 import GuardarEvento from './components/GuardarEvento';
@@ -23,11 +24,11 @@ import LobbyAsociaciones from './components/LobbyAsociaciones';
 import LobbyColaborador from './components/LobbyColaborador';
 import LobbyEstudiante from './components/LobbyEstudiante';
 import GestionarColaborador from './components/GestionarColaborador';
-
 import LobbyEstudiantesAdmin from './components/LobbyEstudiantesAdmin';
 import Comunicacion from './components/Comunicacion';
 import VerEstadisticas from './components/VerEstadisticas';
 import Estadisticas from './components/Estadisticas';
+import CrearEvento from './components/CrearEvento';
 
 
 import Propuesta from './components/Propuesta';
@@ -64,13 +65,14 @@ const App = () => {
         <Route path='/LobbyColaborador' element={<LobbyColaborador />} />
         <Route path='/LobbyEstudiante' element={<LobbyEstudiante />} />
         <Route path='/gestionarColaborador' element={<GestionarColaborador />} />
-
+        <Route path='/RegistrarColaborador' element={<RegistrarColaborador />} />
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
         <Route path='/lobbyestudiantesadmin' element={<LobbyEstudiantesAdmin />} />
         <Route path='/comunicacion' element={<Comunicacion />} />
         <Route path='/verestadisticas' element={<VerEstadisticas />} />
         <Route path='/estadisticas' element={<Estadisticas />} />
+        <Route path='/CrearEvento' element={<CrearEvento/>} />
        
       </Routes>
     </div>

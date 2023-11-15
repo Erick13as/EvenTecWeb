@@ -78,7 +78,7 @@ function GestionarEvento() {
           categoria
         });
         console.log('Cambios guardados con éxito.');
-        navigate('/eventec-web') //Cambiar cuando exista pantalla de inicio
+        navigate('/ConsultarEventos') //Cambiar cuando exista pantalla de inicio
       }
     } catch (error) {
       console.error('Error al guardar cambios:', error);
@@ -95,7 +95,7 @@ function GestionarEvento() {
         const doc = querySnapshot.docs[0];
         await deleteDoc(doc.ref);
         console.log('Actividad eliminada con éxito.');
-        navigate('/eventec-web'); //Cambiar cuando exista pantalla de inicio
+        navigate('/ConsultarEventos'); 
       } else {
         console.log('No se encontraron documentos que coincidan con la actividad actual.');
       }
