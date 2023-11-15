@@ -302,6 +302,20 @@
     align-items: center;
   }
 
+  .botonOA {
+    padding: 10px 20px;
+    background-color: #1a5493;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 40px;
+    margin-left: 20px;
+  }
+
   .botonOA2 {
     margin-left: auto;
     padding: 10px 20px;

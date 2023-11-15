@@ -38,16 +38,21 @@ const LobbyEstudiantesAdmin = () => {
 
   return (
     <div className="galeria-container">
+      <form className="formBarra">
+        <div className="botonBarra-container">
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+        </div>
+      </form>
       <p></p>
       <p></p>
       <div className="encuesta-container">
         <form onSubmit={submitSurvey} className="formEncuesta">
           <h1 className="title">Administrativo</h1>
           <br />
-          <button type="submit" className="buttons">Gestionar Estudiantes</button>
-          <button type="submit" className="buttons">Asociaciones</button>
-          <button type="submit" className="buttons">Colaboradores</button>
-          <button type="submit" className="buttons">Estadísticas</button>
+          <button onClick={() => navigate('/consultarEstudiantes')} className="lobby-boton">Consultar Estudiantes</button>
+          <button onClick={() => navigate('/lobbyAsociaciones')} className="lobby-boton">Asociaciones</button>
+          <button onClick={() => navigate('/lobbyColaborador')} className="lobby-boton">Colaboradores</button>
+          <button onClick={() => navigate('/verestadisticas')} className="lobby-boton">Estadísticas</button>
         </form>
       </div>
     </div>

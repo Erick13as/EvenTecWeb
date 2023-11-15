@@ -55,7 +55,7 @@ function CancelarInscrip() {
             });
 
             console.log('Inscripción cancelada con éxito');
-            navigate('/eventec-web') // Cambiar cuando este pantalla inicio
+            navigate('/lobbyEstudiante', { state: { correo: correo } }) 
         } else {
             console.log('No se encontró una inscripción que cumpla con los criterios.');
         }
@@ -64,6 +64,7 @@ function CancelarInscrip() {
     return (
         <div className="galeria-container">
             <form className="formBarra">
+                <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
                 <div className="botonBarra-container">
                     <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
                 </div>

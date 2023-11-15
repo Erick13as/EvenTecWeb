@@ -32,7 +32,7 @@ function CrearEvento() {
         categoria,
       });
       console.log('Evento creado con éxito.');
-      navigate('/LobbyAsociaciones'); 
+      navigate('/lobbyAsociaciones', { state: { evento: nombre } }); 
     } catch (error) {
       console.error('Error al crear evento:', error);
     }
@@ -41,10 +41,9 @@ function CrearEvento() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
+        <button onClick={() => navigate('/lobbyAsociaciones')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>

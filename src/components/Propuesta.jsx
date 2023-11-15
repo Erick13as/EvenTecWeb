@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../firebase/firebaseConfig";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
@@ -10,6 +10,9 @@ const Propuesta = () => {
   const [actividades, setActividades] = useState("");
   const [fechaSugerida, setFechaSugerida] = useState("");
   const [participantes, setParticipantes] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const correo = location.state && location.state.correo;
 
   const submitProposal = async (e) => {
     e.preventDefault();
@@ -33,10 +36,14 @@ const Propuesta = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   return (
     <div className="galeria-container">
+      <form className="formBarra">
+        <button onClick={() => navigate('/comunicacion', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
+        <div className="botonBarra-container">
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+        </div>
+      </form>
       <p></p>
       <p></p>
       <div className="propuesta-container">

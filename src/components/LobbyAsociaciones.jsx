@@ -10,11 +10,10 @@ const LobbyAsociaciones = () => {
 
   return (
     <div className="galeria-container">
-        <form className="formBarra">
+      <form className="formBarra">
+        <button onClick={() => navigate('/lobbyestudiantesadmin')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>
@@ -25,11 +24,11 @@ const LobbyAsociaciones = () => {
         
         {/* Botones */}
         <div className="lobby-botones-container">
-          <button className="lobby-boton" onClick={() => navigateTo("/RegistrarAsociacion")}>Registrar Asociacion</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/CreacionEventos")}>Creacion de Eventos</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/ConsultarEventos")}>Consultar Eventos</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/CreacionActividades")}>Creacion de actividades</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/ConsultarActividades")}>Consultar actividades</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/registrarAsociacion")}>Registrar Asociacion</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/crearEvento")}>Creacion de Eventos</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/consultarEventos")}>Consultar Eventos</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/programacionActividad")}>Creacion de actividades</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/consultarActividades")}>Consultar actividades</button>
         </div>
       </div>
     </div>

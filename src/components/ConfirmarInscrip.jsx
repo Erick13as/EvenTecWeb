@@ -18,6 +18,7 @@ function ConfirmarInscrip() {
     return (
         <div className="galeria-container">
             <form className="formBarra">
+                <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
                 <div className="botonBarra-container">
                     <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
                 </div>
@@ -30,7 +31,7 @@ function ConfirmarInscrip() {
                 <p></p>
                 <QRCode value={qrData} size={200} /> {/* Renderizar el código QR */}
                 <p></p>
-                <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Volver a inicio</button> {/* Cambiar cuando este pantalla inicio */}
+                <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: correo } })} className='botonOA2'>Volver a inicio</button> 
             </form>
         </div>
     );

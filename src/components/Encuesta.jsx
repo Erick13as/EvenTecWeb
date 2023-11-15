@@ -4,11 +4,13 @@ import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 const Encuesta = () => {
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const correo = location.state && location.state.correo;
+  const evento = location.state && location.state.evento;
 
   //const [eventoNombre, setEventoNombre] = useState(location.state ? location.state.eventoNombre : "");
-  const [eventoNombre, seteventoNombre] = useState("Ejemplo");
+  const [eventoNombre, seteventoNombre] = useState(evento);
   const [opinion, setOpinion] = useState("");
   const [actividadFavorita, setActividadFavorita] = useState("");
   const [cambiosSugeridos, setCambiosSugeridos] = useState("");
@@ -38,6 +40,12 @@ const Encuesta = () => {
 
   return (
     <div className="galeria-container">
+      <form className="formBarra">
+        <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
+        <div className="botonBarra-container">
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+        </div>
+      </form>
       <p></p>
       <p></p>
       <div className="encuesta-container">

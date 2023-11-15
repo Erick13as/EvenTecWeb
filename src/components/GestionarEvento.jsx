@@ -78,7 +78,7 @@ function GestionarEvento() {
           categoria
         });
         console.log('Cambios guardados con éxito.');
-        navigate('/ConsultarEventos') //Cambiar cuando exista pantalla de inicio
+        navigate('/lobbyAsociaciones')
       }
     } catch (error) {
       console.error('Error al guardar cambios:', error);
@@ -95,7 +95,7 @@ function GestionarEvento() {
         const doc = querySnapshot.docs[0];
         await deleteDoc(doc.ref);
         console.log('Actividad eliminada con éxito.');
-        navigate('/ConsultarEventos'); 
+        navigate('/lobbyAsociaciones'); 
       } else {
         console.log('No se encontraron documentos que coincidan con la actividad actual.');
       }
@@ -107,10 +107,9 @@ function GestionarEvento() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
+        <button onClick={() => navigate('/lobbyAsociaciones')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>

@@ -58,7 +58,7 @@ function GuardarEvento() {
                 });
 
                 // Redirigir después de guardar el evento
-                navigate('/eventec-web');
+                navigate('/lobbyEstudiante', { state: { correo: email } });
             } else {
                 // Mostrar notificación si ya existe una inscripción con el mismo correo e idEvento
                 toast.error('Evento ya guardado', {
@@ -71,6 +71,7 @@ function GuardarEvento() {
     return (
         <div className="galeria-container">
             <form className="formBarra">
+                <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: email } })} className='botonOA'>Volver al inicio</button>
                 <div className="botonBarra-container">
                     <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
                 </div>

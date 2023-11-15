@@ -1,12 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LobbyEstudiante = () => {
   const navigate = useNavigate();
-
-  const navigateTo = (ruta) => {
-    navigate(ruta);
-  };
+  const location = useLocation();
+  const email = location.state && location.state.correo;
 
   return (
     <div className="galeria-container">
@@ -25,9 +23,10 @@ const LobbyEstudiante = () => {
         
         {/* Botones */}
         <div className="lobby-botones-container">
-          <button className="lobby-boton" onClick={() => navigateTo("/Inscripcion")}>Inscripcion de  Eventos</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/CalendarioEventos")}>Calendario de Eventos</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/MisEventos")}>Mis Eventos</button>
+          <button className="lobby-boton" onClick={() => navigate('/calendarioEventos', { state: { correo: email } })}>Calendario de Eventos</button>
+          <button className="lobby-boton" onClick={() => navigate('/eventos', { state: { correo: email } })}>Inscripcion de  Eventos</button>
+          <button className="lobby-boton" onClick={() => navigate('/misEventos', { state: { correo: email } })}>Mis Eventos</button>
+          <button className="lobby-boton" onClick={() => navigate('/comunicacion', { state: { correo: email } })}>Comunicación</button>
         </div>
       </div>
     </div>

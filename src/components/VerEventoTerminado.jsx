@@ -59,6 +59,7 @@ function VerEventoTerminado() {
     return (
         <div className="galeria-container">
             <form className="formBarra">
+                <button onClick={() => navigate('/lobbyEstudiante', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
                 <div className="botonBarra-container">
                     <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
                 </div>
@@ -91,7 +92,7 @@ function VerEventoTerminado() {
                 <button
                 onClick={() => {
                     guardarCalificacion();
-                    navigate('/encuesta', { state: { evento: evento } });
+                    navigate('/encuesta', { state: { evento: evento, correo: correo } });
                 }}
                 className='botonOA2'
             >

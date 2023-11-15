@@ -103,10 +103,9 @@ function GestionarColaborador() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
+        <button onClick={() => navigate('/lobbyestudiantesadmin')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>

@@ -10,11 +10,10 @@ const LobbyColaborador = () => {
 
   return (
     <div className="galeria-container">
-        <form className="formBarra">
+      <form className="formBarra">
+        <button onClick={() => navigate('/lobbyestudiantesadmin')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>
@@ -25,8 +24,8 @@ const LobbyColaborador = () => {
         
         {/* Botones */}
         <div className="lobby-botones-container">
-          <button className="lobby-boton" onClick={() => navigateTo("/RegistrarColaborador")}>Registrar Colaborador</button>
-          <button className="lobby-boton" onClick={() => navigateTo("/GestionarColaborador")}>Gestionar Colaborador</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/registrarColaborador")}>Registrar Colaborador</button>
+          <button className="lobby-boton" onClick={() => navigateTo("/consultarColaborador")}>Consultar Colaborador</button>
          </div>
       </div>
     </div>

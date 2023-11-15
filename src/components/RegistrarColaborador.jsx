@@ -28,7 +28,7 @@ function RegistrarColaborador() {
         descripcion,
       });
       console.log('Colaborador registrado con éxito.');
-      navigate('/LobbyColaborador'); 
+      navigate('/lobbyColaborador'); 
     } catch (error) {
       console.error('Error al registrar colaborador:', error);
     }
@@ -37,10 +37,9 @@ function RegistrarColaborador() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
+        <button onClick={() => navigate('/lobbyColaborador')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>

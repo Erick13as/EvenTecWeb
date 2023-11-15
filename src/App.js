@@ -24,15 +24,15 @@ import LobbyAsociaciones from './components/LobbyAsociaciones';
 import LobbyColaborador from './components/LobbyColaborador';
 import LobbyEstudiante from './components/LobbyEstudiante';
 import GestionarColaborador from './components/GestionarColaborador';
+
 import LobbyEstudiantesAdmin from './components/LobbyEstudiantesAdmin';
 import Comunicacion from './components/Comunicacion';
 import VerEstadisticas from './components/VerEstadisticas';
 import Estadisticas from './components/Estadisticas';
 import CrearEvento from './components/CrearEvento';
-
-
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
+
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import "./components/Design.css"
@@ -61,18 +61,18 @@ const App = () => {
         <Route path='/consultarEstudiantes' element={<ConsultarEstudiantes />} />
         <Route path='/gestionarEstudiante' element={<GestionarEstudiante />} />
         <Route path='/redesSociales' element={<RedesSociales />} />
-        <Route path='/LobbyAsociaciones' element={<LobbyAsociaciones />} />
-        <Route path='/LobbyColaborador' element={<LobbyColaborador />} />
-        <Route path='/LobbyEstudiante' element={<LobbyEstudiante />} />
+        <Route path='/lobbyAsociaciones' element={<LobbyAsociaciones />} />
+        <Route path='/lobbyColaborador' element={<LobbyColaborador />} />
+        <Route path='/lobbyEstudiante' element={<LobbyEstudiante />} />
         <Route path='/gestionarColaborador' element={<GestionarColaborador />} />
-        <Route path='/RegistrarColaborador' element={<RegistrarColaborador />} />
+        <Route path='/registrarColaborador' element={<RegistrarColaborador />} />
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
         <Route path='/lobbyestudiantesadmin' element={<LobbyEstudiantesAdmin />} />
         <Route path='/comunicacion' element={<Comunicacion />} />
         <Route path='/verestadisticas' element={<VerEstadisticas />} />
         <Route path='/estadisticas' element={<Estadisticas />} />
-        <Route path='/CrearEvento' element={<CrearEvento/>} />
+        <Route path='/crearEvento' element={<CrearEvento/>} />
        
       </Routes>
     </div>

@@ -69,7 +69,7 @@ function GestionarEstudiante() {
           descripcion,
         });
         console.log('Cambios guardados con éxito.');
-        navigate('/eventec-web') //Cambiar cuando exista pantalla de inicio
+        navigate('/lobbyestudiantesadmin') 
       }
     } catch (error) {
       console.error('Error al guardar cambios:', error);
@@ -86,7 +86,7 @@ function GestionarEstudiante() {
         const doc = querySnapshot.docs[0];
         await deleteDoc(doc.ref);
         console.log('Actividad eliminada con éxito.');
-        navigate('/eventec-web'); //Cambiar cuando exista pantalla de inicio
+        navigate('/lobbyestudiantesadmin');
       } else {
         console.log('No se encontraron documentos que coincidan con la actividad actual.');
       }
@@ -98,10 +98,9 @@ function GestionarEstudiante() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
+        <button onClick={() => navigate('/lobbyestudiantesadmin')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className="botonOA2">
-            Cerrar Sesión
-          </button>
+          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>
