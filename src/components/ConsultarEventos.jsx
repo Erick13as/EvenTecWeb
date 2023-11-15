@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { onSnapshot, collection, query, getDocs, where, updateDoc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { collection, query, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 function ConsultarEventos() {
   const [eventOptions, setEventOptions] = useState([]);
   const [selectedActividad, setSelectedActividad] = useState('');
-  const [buttonDisabled, setButtonDisabled] = useState(true); // Agregamos un estado para deshabilitar el botón
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    // Cargar las opciones del combobox desde Firebase
     const fetchEventOptions = async () => {
       const actividadCollection = collection(db, 'evento');
       const actividadQuery = query(actividadCollection);
@@ -18,12 +18,11 @@ function ConsultarEventos() {
       try {
         const actividadSnapshot = await getDocs(actividadQuery);
         const options = actividadSnapshot.docs.map((doc) => ({
-          id: doc.data().nombre,
-          name: doc.data().nombre, // Asumiendo que tienes un campo nombreEvento en tus documentos
+          id: doc.id,
+          name: doc.data().nombre,
         }));
         setEventOptions(options);
 
-        // Habilitar el botón si se encontraron datos
         if (options.length > 0) {
           setButtonDisabled(false);
         }
@@ -33,17 +32,15 @@ function ConsultarEventos() {
     };
 
     fetchEventOptions();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // El segundo argumento vacío asegura que se carguen las opciones solo una vez al montar el componente
+  }, []);
 
-  // Función para manejar el cambio en el combobox
   const handleActividadChange = (event) => {
     setSelectedActividad(event.target.value);
   };
 
   const handleNavigate = () => {
-    if (selectedActividad!==""){
-        navigate('/gestionarEvento', { state: { evento: selectedActividad } })
+    if (selectedActividad !== "") {
+      navigate('/gestionarEvento', { state: { eventoId: selectedActividad } });
     }
   };
 
@@ -72,9 +69,16 @@ function ConsultarEventos() {
         <button
           onClick={() => handleNavigate()}
           className='botonOA2'
-          disabled={buttonDisabled} // Deshabilitar el botón si no hay datos
+          disabled={buttonDisabled}
         >
           Ver evento
+        </button>
+        <button
+          onClick={() => navigate('/agregarColaborador', { state: { eventoId: selectedActividad } })}
+          className='botonOA2'
+          disabled={buttonDisabled}
+        >
+          Agregar colaborador
         </button>
       </div>
     </div>
@@ -82,4 +86,3 @@ function ConsultarEventos() {
 }
 
 export default ConsultarEventos;
-

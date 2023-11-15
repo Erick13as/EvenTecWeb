@@ -15,6 +15,8 @@ function CrearEvento() {
   const [requisitosEspeciales, setRecursos] = useState('');
   const [capacidad, setCapacidad] = useState('');
   const [categoria, setCategoria] = useState('');
+  // Ahora, colaboradores es un array
+  const [colaboradores, setColaboradores] = useState([]);
 
   const handleCrearEvento = async () => {
     try {
@@ -30,9 +32,10 @@ function CrearEvento() {
         requisitosEspeciales,
         capacidad,
         categoria,
+        colaboradores,
       });
       console.log('Evento creado con éxito.');
-      navigate('/redesSociales', { state: { evento: nombre } }); 
+      navigate('/redesSociales', { state: { evento: nombre } });
     } catch (error) {
       console.error('Error al crear evento:', error);
     }

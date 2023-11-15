@@ -25,7 +25,7 @@ import LobbyAsociaciones from './components/LobbyAsociaciones';
 import LobbyColaborador from './components/LobbyColaborador';
 import LobbyEstudiante from './components/LobbyEstudiante';
 import GestionarColaborador from './components/GestionarColaborador';
-
+import AgregarColaborador from './components/AgregarColaborador';
 import LobbyEstudiantesAdmin from './components/LobbyEstudiantesAdmin';
 import Comunicacion from './components/Comunicacion';
 import VerEstadisticas from './components/VerEstadisticas';
@@ -68,7 +68,7 @@ const App = () => {
         <Route path='/gestionarColaborador' element={<GestionarColaborador />} />
         
         <Route path='/registrarColaborador' element={<RegistrarColaborador />} />
-        
+        <Route path='/agregarColaborador' element={<AgregarColaborador />} />
         <Route path='/registrarAsociacion' element={<RegistrarAsociacion />} />
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
