@@ -32,7 +32,7 @@ function CrearEvento() {
         categoria,
       });
       console.log('Evento creado con éxito.');
-      navigate('/lobbyAsociaciones', { state: { evento: nombre } }); 
+      navigate('/redesSociales', { state: { evento: nombre } }); 
     } catch (error) {
       console.error('Error al crear evento:', error);
     }

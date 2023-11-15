@@ -12,8 +12,9 @@ function RedesSociales() {
     return (
         <div className="galeria-container">
             <form className="formBarra">
+                <button onClick={() => navigate('/lobbyAsociaciones')} className='botonOA'>Volver al inicio</button>
                 <div className="botonBarra-container">
-                    <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+                <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
                 </div>
             </form>
             <p></p>
@@ -27,7 +28,7 @@ function RedesSociales() {
                     <img className="imagen-container" src={InstagramLogo} alt="Instagram Logo" />
                 </a>
                 <p></p>
-                <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Volver a Inicio</button>
+                <button onClick={() => navigate('/lobbyAsociaciones')} className='botonOA2'>Volver a Inicio</button>
             </div>
         </div>
     );
