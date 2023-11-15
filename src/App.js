@@ -8,6 +8,7 @@ import CancelarInscrip from './components/CancelarInscrip';
 import ConsultarActividades from './components/ConsultarActividades';
 import GestionarActividad from './components/GestionarActividad';
 import RegistrarColaborador from './components/RegistrarColaborador';
+import RegistrarAsociacion from './components/RegistrarAsociacion';
 import CalendarioEventos from './components/CalendarioEventos';
 import SeleccionarEvento from './components/SeleccionarEvento';
 import GuardarEvento from './components/GuardarEvento';
@@ -65,7 +66,10 @@ const App = () => {
         <Route path='/lobbyColaborador' element={<LobbyColaborador />} />
         <Route path='/lobbyEstudiante' element={<LobbyEstudiante />} />
         <Route path='/gestionarColaborador' element={<GestionarColaborador />} />
+        
         <Route path='/registrarColaborador' element={<RegistrarColaborador />} />
+        
+        <Route path='/registrarAsociacion' element={<RegistrarAsociacion />} />
         <Route path='/propuesta' element={<Propuesta />} />
         <Route path='/encuesta' element={<Encuesta />} />
         <Route path='/lobbyestudiantesadmin' element={<LobbyEstudiantesAdmin />} />

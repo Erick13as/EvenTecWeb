@@ -28,7 +28,7 @@ function RegistrarColaborador() {
         descripcion,
       });
       console.log('Colaborador registrado con éxito.');
-      navigate('/lobbyColaborador'); 
+      navigate('/LobbyColaborador'); 
     } catch (error) {
       console.error('Error al registrar colaborador:', error);
     }
