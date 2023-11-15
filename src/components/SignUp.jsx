@@ -10,6 +10,11 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confPassword, setconfPassword] = useState("");
   const [name, setName] = useState("");
+  const [carnet, setCarnet] = useState("");
+  const [carrera, setCarrera] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [sede, setSede] = useState("");
+
 
   const agregarDatos = async() => {        
     try {
@@ -17,6 +22,10 @@ const SignUp = () => {
         correo: email,
         nombreCompleto: name,
         rol: "Cliente",
+        carnet:carnet, 
+        carrera:carrera,
+        descripcion: descripcion,
+        sede:sede,
       });
     
       console.log("Document written with ID: ", docRef.id);
@@ -40,7 +49,7 @@ const SignUp = () => {
       .then((userCredential) => {
         console.log(userCredential);
         agregarDatos();
-        navigate('/mainPageStudent')
+        navigate('/eventec-web')
       })
       .catch((error) => {
         console.log(error);
@@ -89,6 +98,52 @@ const SignUp = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></input>
+          <h3 className="text">Ingrese su carnet</h3>
+          <input
+            className="textBoxSingUp"
+            type="number"
+            placeholder="Carnet"
+            value={carnet}
+            onChange={(e) => setCarnet(e.target.value)}
+          ></input>
+          <h3 className="text">Ingrese su carrera</h3>
+          <select
+            className="textBox"
+            value={carrera}
+            onChange={(e) => setCarrera(e.target.value)}
+          >
+            <option value="">Seleccione una opción</option>
+            <option value="Ingeniería en Computación">Ingeniería en Computación</option>
+            <option value="Ingeniería Mecatrónica">Ingeniería Mecatrónica</option>
+            <option value="Ingeniería Forestal">Ingeniería Forestal</option>
+            <option value="Ingeniería Física">Ingeniería Física</option>
+            <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
+            <option value="Ingeniería en Materiales">Ingeniería en Materiales</option>
+
+          </select>
+          <h3 className="text">Descripción</h3>
+          <select
+            className="textBox"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+          >
+            <option value="">Seleccione una opción</option>
+            <option value="Estudiante regular">Estudiante regular</option>
+          </select>
+          <h3 className="text">Sede</h3>
+          <select
+            className="textBox"
+            value={sede}
+            onChange={(e) => setSede(e.target.value)}
+          >
+            <option value="">Seleccione una opción</option>
+            <option value="Cartago">Cartago</option>
+            <option value="Cartago">San José</option>
+            <option value="Cartago">San Carlos</option>
+            <option value="Cartago">Alajuela</option>
+            <option value="Cartago">Limón</option>
+
+          </select>
           <h3 id="errorLogin" className="message">Error</h3>
           <br id="espace"></br>
           <button type="submit" className="buttons">Registrarse</button>
