@@ -26,6 +26,9 @@ import GestionarColaborador from './components/GestionarColaborador';
 
 import LobbyEstudiantesAdmin from './components/LobbyEstudiantesAdmin';
 import Comunicacion from './components/Comunicacion';
+import VerEstadisticas from './components/VerEstadisticas';
+import Estadisticas from './components/Estadisticas';
+
 
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
@@ -66,6 +69,8 @@ const App = () => {
         <Route path='/encuesta' element={<Encuesta />} />
         <Route path='/lobbyestudiantesadmin' element={<LobbyEstudiantesAdmin />} />
         <Route path='/comunicacion' element={<Comunicacion />} />
+        <Route path='/verestadisticas' element={<VerEstadisticas />} />
+        <Route path='/estadisticas' element={<Estadisticas />} />
        
       </Routes>
     </div>
