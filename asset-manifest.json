@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/eventec-web/static/css/main.abc1563d.css",
-    "main.js": "/eventec-web/static/js/main.a42c1169.js",
+    "main.css": "/eventec-web/static/css/main.460d60a5.css",
+    "main.js": "/eventec-web/static/js/main.9ed30b89.js",
     "static/media/instagramLogo.webp": "/eventec-web/static/media/instagramLogo.e905e80e3d57cc2b32c7.webp",
     "static/media/backgroundImage.webp": "/eventec-web/static/media/backgroundImage.8b76e06f080717b3fb8e.webp",
     "index.html": "/eventec-web/index.html",
-    "main.abc1563d.css.map": "/eventec-web/static/css/main.abc1563d.css.map",
-    "main.a42c1169.js.map": "/eventec-web/static/js/main.a42c1169.js.map"
+    "main.460d60a5.css.map": "/eventec-web/static/css/main.460d60a5.css.map",
+    "main.9ed30b89.js.map": "/eventec-web/static/js/main.9ed30b89.js.map"
   },
   "entrypoints": [
-    "static/css/main.abc1563d.css",
-    "static/js/main.a42c1169.js"
+    "static/css/main.460d60a5.css",
+    "static/js/main.9ed30b89.js"
   ]
 }
