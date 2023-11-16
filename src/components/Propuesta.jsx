@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { auth } from "../firebase/firebaseConfig";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
@@ -14,9 +13,15 @@ const Propuesta = () => {
   const location = useLocation();
   const correo = location.state && location.state.correo;
 
-  const submitProposal = async (e) => {
-    e.preventDefault();
+  const handleVolverAlInicio = () => {
+    navigate('/comunicacion', { state: { correo: correo } });
+  };
 
+  const handleCerrarSesion = () => {
+    navigate('/eventec-web');
+  };
+
+  const submitProposal = async () => {
     try {
       // Guardar la propuesta en Firestore
       const propuestaRef = await addDoc(collection(db, 'propuesta'), {
@@ -39,15 +44,15 @@ const Propuesta = () => {
   return (
     <div className="galeria-container">
       <form className="formBarra">
-        <button onClick={() => navigate('/comunicacion', { state: { correo: correo } })} className='botonOA'>Volver al inicio</button>
+        <button onClick={handleVolverAlInicio} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
-          <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
+          <button onClick={handleCerrarSesion} className='botonOA2'>Cerrar Sesión</button>
         </div>
       </form>
       <p></p>
       <p></p>
       <div className="propuesta-container">
-        <form onSubmit={submitProposal} className="formPropuesta">
+        <form className="formPropuesta">
           <h1 className="title">Propuesta de Evento</h1>
           <h3 className="text">Tema:</h3>
           <input
@@ -89,7 +94,7 @@ const Propuesta = () => {
             onChange={(e) => setParticipantes(e.target.value)}
           />
           <br />
-          <button type="submit" className="buttons">Enviar Propuesta</button>
+          <button onClick={submitProposal} className="buttons">Enviar Propuesta</button>
         </form>
       </div>
     </div>
