@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { collection, query, getDocs, updateDoc, arrayUnion, doc, getDoc } from 'firebase/firestore'; // Agrega la importación aquí
+import { collection, query, getDocs, updateDoc, arrayUnion, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 function AgregarColaborador() {
@@ -20,7 +20,7 @@ function AgregarColaborador() {
         const colaboradoresSnapshot = await getDocs(colaboradoresQuery);
         const colaboradoresList = colaboradoresSnapshot.docs.map((doc) => ({
           id: doc.id,
-          nombre: doc.data().nombre,
+          carnet: doc.data().carnet, // Cambiar aquí para guardar el carnet
         }));
         setColaboradores(colaboradoresList);
       } catch (error) {
@@ -77,8 +77,8 @@ function AgregarColaborador() {
           <select onChange={(e) => setSelectedColaborador(e.target.value)} value={selectedColaborador}>
             <option value="">Seleccione un colaborador</option>
             {colaboradores.map((colaborador) => (
-              <option key={colaborador.id} value={colaborador.id}>
-                {colaborador.nombre}
+              <option key={colaborador.id} value={colaborador.carnet}>
+                {colaborador.carnet}
               </option>
             ))}
           </select>
