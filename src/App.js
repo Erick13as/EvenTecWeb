@@ -35,6 +35,7 @@ import Estadisticas from './components/Estadisticas';
 import CrearEvento from './components/CrearEvento';
 import Propuesta from './components/Propuesta';
 import Encuesta from './components/Encuesta';
+import Foro from './components/Foro';
 
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
@@ -80,6 +81,7 @@ const App = () => {
         <Route path='/verestadisticas' element={<VerEstadisticas />} />
         <Route path='/estadisticas' element={<Estadisticas />} />
         <Route path='/crearEvento' element={<CrearEvento/>} />
+        <Route path='/foro' element={<Foro/>} />
        
       </Routes>
     </div>

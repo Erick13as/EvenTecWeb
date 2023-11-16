@@ -34,7 +34,7 @@ const Comunicacion = () => {
         <form onSubmit={submitSurvey} className="formEncuesta">
           <h1 className="title">Comunicación</h1>
           <br />
-          <button className="lobby-boton" onClick={() => navigate('/')}>Foro Discusión</button>
+          <button className="lobby-boton" onClick={() => navigate('/foro', { state: { correo: correo } })}>Foro Discusión</button>
           <button className="lobby-boton" onClick={() => navigate('/propuesta', { state: { correo: correo } })}>Formulario de propuestas    </button>
         </form>
       </div>

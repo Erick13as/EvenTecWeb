@@ -1,3 +1,59 @@
+.chat-mensajes-container {
+  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  max-width: 400px;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+/* Estilo base del contenedor de mensaje */
+.mensaje {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Estilo del contenedor del mensaje del usuario actual (a la derecha) */
+.mi-mensaje {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  text-align: right;
+}
+
+/* Estilo del contenedor del mensaje de otros usuarios (a la izquierda) */
+.otro-mensaje {
+  background-color: #2196F3; /* Azul */
+  color: white;
+  text-align: left;
+}
+
+/* Estilo del formulario de chat */
+.formulario-chat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Estilo del cuadro de entrada de mensaje */
+.mensaje-input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo del botón de enviar mensaje */
+.enviar-button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #2196F3; /* Azul */
+  color: white;
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
