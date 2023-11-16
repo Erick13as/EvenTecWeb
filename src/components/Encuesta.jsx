@@ -30,6 +30,7 @@ const Encuesta = () => {
       });
 
       console.log("Encuesta guardada con ID: ", encuestaRef.id);
+      navigate('/lobbyEstudiante', { state: { correo: correo } })
 
       // Aquí podrías redirigir a otra página o hacer alguna acción adicional si es necesario
     } catch (error) {

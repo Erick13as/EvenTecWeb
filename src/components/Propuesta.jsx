@@ -33,6 +33,7 @@ const Propuesta = () => {
       });
 
       console.log("Propuesta guardada con ID: ", propuestaRef.id);
+      handleVolverAlInicio()
 
       // Aquí podrías redirigir a otra página o hacer alguna acción adicional si es necesario
     } catch (error) {
