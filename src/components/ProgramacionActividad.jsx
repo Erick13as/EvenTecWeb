@@ -61,7 +61,7 @@ function ProgramacionActividad() {
       });
 
       console.log('Cambios guardados con éxito. Nuevo documento creado:', nuevoDocRef.id);
-      navigate('/eventec-web');
+      navigate('/LobbyAsociaciones');
     } catch (error) {
       console.error('Error al guardar cambios:', error);
     }
@@ -70,7 +70,7 @@ function ProgramacionActividad() {
   return (
     <div className="galeria-container">
       <form className="formBarra">
-        <button onClick={() => navigate('/lobbyAsociaciones')} className='botonOA'>Volver al inicio</button>
+        <button onClick={() => navigate('/LobbyAsociaciones')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
           <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
