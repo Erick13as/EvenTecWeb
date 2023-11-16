@@ -55,8 +55,8 @@ function ConsultarEventos() {
       <p></p>
       <p></p>
       <div className="form-actividad">
-        <h1>Eventos Programadas</h1>
-        <p>Lista de Actividades:</p>
+        <h1>Eventos Programados</h1>
+        <p>Lista:</p>
         <select onChange={handleActividadChange} value={selectedActividad}>
           <option value="">...</option>
           {eventOptions.map((option) => (

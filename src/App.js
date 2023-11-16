@@ -14,6 +14,8 @@ import SeleccionarEvento from './components/SeleccionarEvento';
 import GuardarEvento from './components/GuardarEvento';
 
 import ConsultarEventos from './components/ConsultarEventos';
+
+import ConsultarColaborador from './components/ConsultarColaborador';
 import GestionarEvento from './components/GestionarEvento';
 import VerEventoTerminado from './components/VerEventoTerminado';
 import ProgramacionActividad from './components/ProgramacionActividad';
@@ -51,6 +53,7 @@ const App = () => {
         <Route path='/misEventos' element={<MisEventos />} />
         <Route path='/cancelarInscrip' element={<CancelarInscrip />} />
         <Route path='/consultarActividades' element={<ConsultarActividades />} />
+        <Route path='/ConsultarColaborador' element={<ConsultarColaborador />} />
         <Route path='/gestionarActividad' element={<GestionarActividad />} />
         <Route path='/calendarioEventos' element={<CalendarioEventos />} />
         <Route path='/seleccionarEvento' element={<SeleccionarEvento />} />
