@@ -55,7 +55,7 @@ const Foro = () => {
   return (
     <div className="galeria-container">
       <form className="formBarra">
-        <button onClick={() => navigate('/lobbyestudiantesadmin')} className='botonOA'>Volver al inicio</button>
+        <button onClick={() => navigate('/comunicacion')} className='botonOA'>Volver al inicio</button>
         <div className="botonBarra-container">
           <button onClick={() => navigate('/eventec-web')} className='botonOA2'>Cerrar Sesión</button>
         </div>
