@@ -38,9 +38,15 @@ function ConsultarEventos() {
     setSelectedActividad(event.target.value);
   };
 
-  const handleNavigate = () => {
-    if (selectedActividad !== "") {
-      navigate('/gestionarEvento', { state: { eventoId: selectedActividad } });
+  const handleVerEventoClick = () => {
+    // Find the selected event object based on the selectedActividad value
+    const selectedEvent = eventOptions.find((option) => option.id === selectedActividad);
+
+    // Check if a matching event is found
+    if (selectedEvent) {
+      // Extract the name attribute and navigate to gestionarEvento
+      const eventName = selectedEvent.name;
+      navigate('/gestionarEvento', { state: { evento: eventName } });
     }
   };
 
@@ -67,7 +73,7 @@ function ConsultarEventos() {
         </select>
         <p></p>
         <button
-          onClick={() => handleNavigate()}
+          onClick={handleVerEventoClick }
           className='botonOA2'
           disabled={buttonDisabled}
         >
