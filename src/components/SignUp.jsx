@@ -107,6 +107,7 @@ const SignUp = () => {
             <option value="Ingeniería Física">Ingeniería Física</option>
             <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
             <option value="Ingeniería en Materiales">Ingeniería en Materiales</option>
+            <option value="Administración de Tecnología de Información">Administración de Tecnología de Información</option>
 
           </select>
           <h3 className="text">Descripción</h3>
