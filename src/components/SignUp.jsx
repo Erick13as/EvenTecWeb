@@ -1,9 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "../firebase/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../firebase/firebaseConfig';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -15,24 +13,24 @@ const SignUp = () => {
   const [descripcion, setDescripcion] = useState("");
   const [sede, setSede] = useState("");
 
-
-  const agregarDatos = async() => {        
+  const agregarDatos = async () => {
     try {
       const docRef = await addDoc(collection(db, "usuario"), {
         correo: email,
         nombreCompleto: name,
-        rol: "Cliente",
-        carnet:carnet, 
-        carrera:carrera,
+        rol: "Estudiante",
+        carnet: carnet,
+        carrera: carrera,
         descripcion: descripcion,
-        sede:sede,
+        sede: sede,
+        contrasenna: password,
       });
-    
+
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-  }
+  };
 
   const signUp = (e) => {
     e.preventDefault();
@@ -45,19 +43,9 @@ const SignUp = () => {
       return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        agregarDatos();
-        navigate('/eventec-web')
-      })
-      .catch((error) => {
-        console.log(error);
-        var errorMessage = document.getElementById('errorLogin');
-        errorMessage.style.display = "block";
-        errorMessage.textContent = "Datos no válidos";
-        document.getElementById('espace').style.display = "none";
-      });
+
+    agregarDatos();
+    navigate('/eventec-web');
   };
 
   const navigate = useNavigate();
